@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 public class MathController{
 
 	@Autowired
-	private MathOperatorImpl mathOperator = new MathOperatorImpl();
+	private MathOperatorImpl mathOperator  = new MathOperatorImpl();
 
 	@PostMapping("/calculate")
-	public double doMath(@RequestBody DoMathRequestDto dto) throws InvalidOperationException {
-		double res = mathOperator.doMath(dto.getOperand1(), dto.getOperand2(), dto.getOperation());
-		return res;
+	public  ResponseEntity<Response> doMath(@RequestBody DoMathRequestDto dto) throws InvalidOperationException {
+		Response res = mathOperator.doMath(dto.getOperand1(), dto.getOperand2(), dto.getOperation());
+	  return ResponseEntity.ok(res);
 	}
 }
