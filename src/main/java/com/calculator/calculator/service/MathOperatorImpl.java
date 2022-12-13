@@ -1,5 +1,8 @@
 package com.calculator.calculator.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 import com.calculator.calculator.utils.InvalidOperationException;
 
 public class MathOperatorImpl implements MathOperator{
